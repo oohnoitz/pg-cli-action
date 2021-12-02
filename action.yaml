@@ -1,0 +1,17 @@
+name: "Github Action for Postgres CLI"
+description: "Execute postgres cli commands"
+branding:
+  icon: 'anchor'
+  color: 'blue'
+inputs:
+  command:
+    description: "Commands to run"
+    required: true
+outputs:
+  result:
+    description: "Output returned by your Helm or kubectl command"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.command }}
